@@ -1,0 +1,8 @@
+.join-menu{
+	display: flex;
+	border: 1px solid black;
+	justify-content: space-between;
+}
+.dn{
+	display: none;
+}

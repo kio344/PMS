@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org">
+	
+<body>
+	<nav th:fragment="nav">
+			<nav id="slide_menu" class="dn">
+				<div class="layout_width">
+					<a th:href="@{/QnA}">Q&A</a>
+					<br>
+					<a th:href="@{/board/notice}">COMMUNITY</a>
+					<br>
+					<a th:href="@{/shop/index}">PET</a>
+				</div>
+			</nav>
+			<div id="layer" class="dn"></div>
+	</nav>
+</body>
+
+</html>
