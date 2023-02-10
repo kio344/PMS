@@ -9,29 +9,62 @@
 <body>
 	<h1>회원가입</h1>
 	<div>
-		<form method="post" th:action="@{/user/}">
+		<form method="post" th:action="@{/user/join}" th:object="${joinRequest}">
 			<dl>
-				<dt>아이디 : <input type"text" name="memId"> <button>중복확인</button></dt>
-			</dl>
-
-			<dl>
-				<dt>비밀번호 : <input type"password" name="memPw"></dt>
-			</dl>
-
-			<dl>
-				<dt>비밀번호 확인 : <input type"password" name="memPwRe"></dt>
-			</dl>
-
-			<dl>
-				<dt>이름 : <input type="text" name="memNm"></dt>
+				<dt>아이디 : <input type="text" th:field="*{memId}" placeholder="아이디를 입력해주세요." > <button>중복확인</button></dt>
+				<dd>
+					<span th:each="err : ${#fields.errors('memId')}" th:text="${err}">
+					</span>
+				</dd>
 			</dl>
 			
 			<dl>
-				<dt>전화번호 : <input type="text" name="mobile"></dt>
+				<dt>비밀번호 : <input type="password" th:field="*{memPw}" placeholder="비밀번호를 입력해주세요."></dt>
+				<dd>
+					<span th:each="err : ${#fields.errors('memPw')}" th:text="${err}">
+					</span>
+						
+				</dd>
+			</dl>
+
+			<dl>
+				<dt>비밀번호 확인 : <input type="password" th:field="*{memPwRe}" placeholder="비밀번호를 다시 입력해주세요."></dt>
+				<dd>
+					<span th:each="err : ${#fields.errors('memPwRe')}" th:text="${err}">
+					</span>
+				</dd>
+			</dl>
+
+			<dl>
+				<dt>이름 : <input type="text" th:field="*{memNm}" placeholder="이름을 입력해주세요."></dt>
+				<dd>
+					<span th:each="err : ${#fields.errors('memNm')}" th:text="${err}">
+					</span>	
+				</dd>
 			</dl>
 			
 			<dl>
-				<dt>이메일 : <input type="text" name="email"></dt>			
+				<dt>닉네임 : <input type="text" th:field="*{nickName}" placeholder="닉네임을 입력해주세요."></dt>
+				<dd>
+					<span th:each="err : ${#fields.errors('nickName')}" th:text="${err}">
+					</span>	
+				</dd>
+			</dl>
+
+			<dl>
+				<dt>전화번호 : <input type="text" th:field="*{mobile}" placeholder="전화번호를 입력해주세요."></dt>
+				<dd>
+					<span th:each="err : ${#fields.errors('mobile')}" th:text="${err}">
+					</span>	
+				</dd>
+			</dl>
+			
+			<dl>
+				<dt>이메일 : <input type="text" th:field="*{email}" placeholder="이메일을 입력해주세요"></dt>			
+				<dd>
+					<span th:each="err : ${#fields.errors('email')}" th:text="${err}">
+					</span>	
+				</dd>
 			</dl>
 
 			<dl>
@@ -43,28 +76,27 @@
 					<input type="text" th:name="addr" id="sample6_address" placeholder="주소" readonly>
 					<br>
 					<input type="text" th:name="extraaddr" id="sample6_extraAddress" placeholder="참고항목" readonly>
-					<input type="text" th:name="datiladdr" id="sample6_detailAddress" placeholder="상세주소" th:field="*{datilAdd}">
+					<input type="text" th:name="address" id="sample6_detailAddress" placeholder="상세주소" th:field="*{address}">
 				</p>
+				<dd>
+					<span th:each="err : ${#fields.errors('address')}" th:text="${err}">
+					</span>	
+				</dd>
 			</dl>
-
+			
 			<dl>
-				<dt>닉네임 : <input type="text" name="userNic"></dt>
-			</dl>
-
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">
+				</p>
+			</dl>	
+			
 			<dl>
 				<button type="submit">
 					회원가입
 				</button>
-
-				<button type="reset">
-					다시적기
-				</button>
-
-
 			</dl>
-
 		</form>
 	</div>
+	
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		function sample6_execDaumPostcode() {
