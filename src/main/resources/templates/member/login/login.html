@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+</head>
+
+<body>
+	<h1>로그인 </h1>
+	<form method="post" th:action="@{/user/login}">
+		<div>
+			<dl>
+				<dd>
+					아이디 : <input type="text" name="loginId">
+				</dd>
+			</dl>
+			<dl>
+				<dd>
+					비밀번호 : <input type="password" name="loginPw">
+				</dd>
+			</dl>
+		</div>
+		<div>
+			<button type="submit">로그인</button>
+		</div>
+	</form>
+</body>
+
+</html>

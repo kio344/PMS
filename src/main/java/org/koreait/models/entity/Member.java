@@ -9,9 +9,10 @@ import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Entity @Getter @Setter
-public class User extends BaseEntity{
+@Entity @Getter @Setter @ToString
+public class Member extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +33,7 @@ public class User extends BaseEntity{
 	@Column(length = 11, nullable = false)
 	private String mobile; // 회원 전화번호
 	
-	@Column(length = 60, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String address; // 회원 주소
 	
 	@Column(length = 60, nullable = false)

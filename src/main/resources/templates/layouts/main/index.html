@@ -6,11 +6,11 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 	<link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<!--<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>-->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	
-	<link rel="stylesheet" th:href="@{/css/common/clear.css}">
-	<link rel="stylesheet" th:href="@{/css/common/common.css}">
-	<script defer type="text/javascript" th:src="@{/js/common/common.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/common/commons.css}">
+	<script defer type="text/javascript" th:src="@{/js/menu.js}"></script>
 
 	<link th:each="css:${addCss}" th:href="@{/css{css}.css(css=${css})}" rel="stylesheet">
 	<script th:each="js:${addJs}" th:src="@{/js{js}.js(js=${js})}" type="text/javascript" ></script>

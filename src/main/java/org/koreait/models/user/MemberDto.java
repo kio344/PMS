@@ -1,6 +1,6 @@
 package org.koreait.models.user;
 
-import org.koreait.models.entity.User;
+import org.koreait.models.entity.Member;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,11 +19,11 @@ public class MemberDto {
 	private String email;
 	private String nickName;
 	
-	public static User toEntity(MemberDto dto) {
+	public static Member toEntity(MemberDto dto) {
 		if(dto == null) {
 			return null;
 		}
-		User entity = new User();
+		Member entity = new Member();
 		
 		entity.setMemId(dto.getMemId());
 		entity.setMemPw(dto.getMemPw());
@@ -37,7 +37,7 @@ public class MemberDto {
 		return entity;
 	}
 	
-	public static MemberDto toDto(User entity) {
+	public static MemberDto toDto(Member entity) {
 		if(entity == null) {
 			return null;
 		}

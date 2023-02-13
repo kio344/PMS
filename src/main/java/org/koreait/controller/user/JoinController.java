@@ -1,6 +1,7 @@
 package org.koreait.controller.user;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.koreait.models.user.JoinRequest;
@@ -29,7 +30,8 @@ public class JoinController {
 		JoinRequest request = new JoinRequest();
 		
 		model.addAttribute("joinRequest", request);
-		model.addAttribute("addCss", new String [] {""});
+		model.addAttribute("addJs", new String [] {"/join"});
+		model.addAttribute("addCss", new String [] {"/join/join"});
 		return "/member/join/join";
 	}
 	
@@ -39,15 +41,15 @@ public class JoinController {
 	 * 유효성 검사 후 오류 출력 또는 DB저장
 	 */
 	@PostMapping("/join")
-	public String data(@Valid JoinRequest request, Errors errors, Model model) {
+	public String data(@Valid JoinRequest request, Errors errors, Model model, HttpServletRequest req) {
 		
 		model.addAttribute("joinRequest", request);
-		System.out.println(errors.getFieldErrors());
-		
+		model.addAttribute("addJs", new String [] {"/join"});
+		model.addAttribute("addCss", new String [] {"/join/join"});
 		if(errors.hasErrors()) {
 			return "/member/join/join";
 		}else {
-			service.check(request);
+			service.check(request, req);
 			return "redirect:/PMS";
 		}
 		
