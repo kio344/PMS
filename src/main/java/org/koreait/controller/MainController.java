@@ -9,10 +9,8 @@ public class MainController {
 	
 	@RequestMapping("/PMS")
 	public String main(Model model) {
-		model.addAttribute("addCss", new String[] {"/common/commons"});
-		model.addAttribute("addJs", new String[] {"/menu"});
 		
-		return "/layout/main/index";
+		return "main";
 	}
 	
 }

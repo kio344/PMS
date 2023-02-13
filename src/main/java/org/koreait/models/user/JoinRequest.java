@@ -1,9 +1,10 @@
 package org.koreait.models.user;
 
+
+import javax.validation.constraints.Email;
+
 import javax.validation.constraints.NotBlank;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,21 +12,28 @@ import lombok.ToString;
 @Getter @Setter @ToString
 public class JoinRequest {
 	
-	@NotBlank
-	@Size(min = 3)
+	@NotBlank(message = "아이디가 비어있습니다.")
 	private String memId;
-	@NotBlank
-	@Size(min = 4)
+	
+	@NotBlank(message = "비밀번호가 비어있습니다.")
 	private String memPw;
-	@NotBlank
+	
+	@NotBlank(message = "비밀번호를 확인해주세요.")
 	private String memPwRe;
-	@NotBlank
+	
+	@NotBlank(message = "이름을 입력해주세요.")
 	private String memNm;
-	@NotBlank
+	
+	@NotBlank(message = "닉네임을 입력해주세요.")
+	private String nickName;
+	
+	@NotBlank(message = "전화번호를 입력해주세요.")
 	private String mobile;
-	@NotBlank
+	
+	@NotBlank(message = "주소를 입력해주세요.")
 	private String address;
-	@NotBlank
+	
+	@NotBlank(message = "이메일을 입력해주세요.")
 	@Email
 	private String email;
 	
